@@ -10,6 +10,7 @@ namespace SweepstakesPart2_Erick
     {
         public string gameName;
         Dictionary<int, Contestant> sweeps = new Dictionary<int, Contestant>();
+        public int winningNumber;
 
         public Sweepstakes(string GameName)
         {
@@ -25,20 +26,21 @@ namespace SweepstakesPart2_Erick
                 createContestants();
             }
 
-            //else if (choice == "2")
+            else if (choice == "2")
 
-            //{
 
-            //    sodaMenu();
+            {
 
-            //}
+                PickWinner();
+
+            }
 
 
             else
 
             {
                 Console.WriteLine("That is not a valid option in this menu.");
-                //runMenu();
+                runMenu();
             }
 
         }
@@ -49,21 +51,46 @@ namespace SweepstakesPart2_Erick
             string name = Console.ReadLine();
             int ticketNumber = sweeps.Count;
             Contestant newContestant = new Contestant(name, ticketNumber);
+            Console.WriteLine("Your ticket number is " + ticketNumber);
             RegisterContestant(newContestant);
             runMenu();
-
-
         }
 
-   
+
         public void RegisterContestant(Contestant contestant)
         {
-     
+            
             sweeps.Add(contestant.ticketNumber, contestant);
         }
 
+        public int pickWinningNumber()
+        {
+
+            Random random = new Random();
+            winningNumber = random.Next(0, sweeps.Count);
+            Console.WriteLine("The winning number is " + winningNumber);
+            return winningNumber;
+        }
+
+        public string PickWinner()
+        {
+            pickWinningNumber();
+            Contestant winner = null;
+            for (int i = 0; i < sweeps.Count; i++)
+            {
+
+                if (sweeps[i].ticketNumber == winningNumber)
+                {
+                    winner = sweeps[i];
+                }
+
+            }
+            Console.WriteLine("The winner is " + winner.name);
+            return winner.name;
+        }
     }
 }
+
 
 //Using a Systems.Collections.Generic.Dictionary as an underlying structure, create a Sweepstakes class with the following functions(you will need to define a Contestant class containing appropriate fields for the purpose):
 //    Sweepstakes(string name)
