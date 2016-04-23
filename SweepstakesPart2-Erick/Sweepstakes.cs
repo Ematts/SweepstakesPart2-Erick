@@ -102,6 +102,8 @@ namespace SweepstakesPart2_Erick
 
             }
             Console.WriteLine("The winner is " + winner.name);
+            runMenu();
+
             return winner.name;
         }
 
@@ -131,17 +133,14 @@ namespace SweepstakesPart2_Erick
                 searchReset = true;
                 runMenu();
             }
-
-       
-        //good and then bad
-        }
+       }
 
         public void PrintContestantInfo(Contestant contestant)
         {
 
             Console.WriteLine("Contestent Name : {0}", contestant.name);
             Console.WriteLine("Contestent ticket number : {0}", contestant.ticketNumber);
-            //Console.WriteLine("You {0}", contestant.Results);
+            Console.WriteLine("You {0}", contestant.result);
 
         }
 

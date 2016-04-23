@@ -11,9 +11,12 @@ namespace SweepstakesPart2_Erick
     {
         static void Main(string[] args)
         {
+
+
+     
             Sweepstakes sweepstakes = new Sweepstakes("Car");
             sweepstakes.runMenu();
-            sweepstakes.runMenu();
+
             Console.ReadKey();
 
 

@@ -8,7 +8,9 @@ namespace SweepstakesPart2_Erick
 {
     interface ISweepstakesManager
     {
-    }
+        void InsertSweepstakes(Sweepstakes sweepstakes);
+        Sweepstakes GetNextSweepstakesWinner();
+    };
 }
 
 //Using a Systems.Collections.Generic.Dictionary as an underlying structure, create a Sweepstakes class with the following functions(you will need to define a Contestant class containing appropriate fields for the purpose):
