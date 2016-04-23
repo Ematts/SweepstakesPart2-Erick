@@ -10,12 +10,14 @@ namespace SweepstakesPart2_Erick
     {
         public string name;
         public int ticketNumber;
+        public string result;
 
-        public Contestant(string Name, int TicketNumber)
+        public Contestant(string Name, int TicketNumber, string Result)
         {
 
             name = Name;
             ticketNumber = TicketNumber;
+            result = Result;
 
         }
     }

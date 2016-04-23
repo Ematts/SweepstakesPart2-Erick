@@ -4,21 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace SweepstakesPart2_Erick
 {
-    class Program
+    interface ISweepstakesManager
     {
-        static void Main(string[] args)
-        {
-            Sweepstakes sweepstakes = new Sweepstakes("Car");
-            sweepstakes.runMenu();
-            sweepstakes.runMenu();
-            Console.ReadKey();
-
-
-
-        }
     }
 }
 
