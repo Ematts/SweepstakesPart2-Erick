@@ -8,14 +8,16 @@ namespace SweepstakesPart2_Erick
 {
     class Contestant
     {
-        public string name;
+        public string firstName;
+        public string lastName;
         public int ticketNumber;
         public string result;
 
-        public Contestant(string Name, int TicketNumber, string Result)
+        public Contestant(string FirstName, string LastName, int TicketNumber, string Result)
         {
 
-            name = Name;
+            firstName = FirstName;
+            lastName = LastName;
             ticketNumber = TicketNumber;
             result = Result;
 

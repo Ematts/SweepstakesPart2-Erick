@@ -55,12 +55,14 @@ namespace SweepstakesPart2_Erick
 
         public void createContestants()
         {
-            Console.WriteLine("Enter contestant's name.");
-            string name = Console.ReadLine();
+            Console.WriteLine("Enter contestant's first name.");
+            string firstName = Console.ReadLine();
+            Console.WriteLine("Enter contestant's last name.");
+            string lastName = Console.ReadLine();
             int ticketNumber = sweeps.Count;
             string result = "pending";
 
-            Contestant newContestant = new Contestant(name, ticketNumber, result);
+            Contestant newContestant = new Contestant(firstName, lastName, ticketNumber, result);
             Console.WriteLine("Your ticket number is " + ticketNumber);
             RegisterContestant(newContestant);
             runMenu();
@@ -101,24 +103,26 @@ namespace SweepstakesPart2_Erick
                 }
 
             }
-            Console.WriteLine("The winner is " + winner.name);
+            Console.WriteLine("The winner is " + winner.firstName + " " + winner.lastName);
             runMenu();
 
-            return winner.name;
+            return winner.firstName + winner.lastName;
         }
 
         public void contestantMenu()
         {
             searchReset = false;
-            Console.WriteLine("Enter contestant's name you want to search");
-            string choice = Console.ReadLine().ToLower();
-            
+            Console.WriteLine("Enter first name or contestant you want to search");
+            string firstNameChoice = Console.ReadLine().ToLower();
+            Console.WriteLine("Enter last name or contestant you want to search");
+            string lastNameChoice = Console.ReadLine().ToLower();
+
             for (int i = 0; i < sweeps.Count; i++)
                 {
 
-                    if (sweeps[i].name == choice)
+                    if (sweeps[i].firstName == firstNameChoice && sweeps[i].lastName == lastNameChoice)
                     {
-                        Console.WriteLine("Contestant's name is " + sweeps[i].name);
+                        Console.WriteLine("Contestant's name is " + sweeps[i].firstName + " " + sweeps[i].lastName);
                         Console.WriteLine("Contestant's ticket number is " + sweeps[i].ticketNumber);
                         Console.WriteLine("Result: " + sweeps[i].result);
                         searchReset = true;
@@ -138,7 +142,7 @@ namespace SweepstakesPart2_Erick
         public void PrintContestantInfo(Contestant contestant)
         {
 
-            Console.WriteLine("Contestent Name : {0}", contestant.name);
+            Console.WriteLine("Contestent Name : {0}", contestant.firstName + "" + contestant.lastName);
             Console.WriteLine("Contestent ticket number : {0}", contestant.ticketNumber);
             Console.WriteLine("You {0}", contestant.result);
 
